@@ -1,0 +1,183 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ========== DESIGN TOKENS ========== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: "Geist Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
+
+/* ========== COLOR THEMES ========== */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+
+  --radius: 0.5rem;
+}
+
+/* ========== BASE STYLES ========== */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ========== UTILITIES & EFFECTS ========== */
+@layer utilities {
+
+  .text-glow-cyan {
+    text-shadow: 0 0 5px #22d3ee, 0 0 10px #06b6d4, 0 0 20px #06b6d4;
+  }
+  /* glow hover */
+  .hover-glow-cyan {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-glow-cyan:hover {
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.8);
+  }
+
+  /* lift on hover */
+  .raise {
+    transition: all 0.3s ease;
+  }
+  .raise:hover {
+    transform: translateY(-4px);
+  }
+
+  /* keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+  @keyframes fadeOut {
+    0% { opacity: 0 }
+    30% { opacity: 1 }
+    80% { opacity: .9 }
+    100% { opacity: 0 }
+  }
+  @keyframes finalFade {
+    0% { opacity: 0 }
+    30% { opacity: 1 }
+    80% { opacity: .9 }
+    100% { opacity: 1 }
+  }
+  @keyframes floatUp {
+    0% { top: 100vh; opacity: 0 }
+    25% { opacity: 1 }
+    50% { top: 0vh; opacity: .8 }
+    75% { opacity: 1 }
+    100% { top: -100vh; opacity: 0 }
+  }
+
+  /* floating lights */
+  .light {
+    position: absolute;
+    width: 0px;
+    background-color: white;
+    box-shadow: #e9f1f1 0px 0px 20px 2px;
+    opacity: 0;
+    margin: auto;
+  }
+  .x1 { animation: floatUp 4s infinite linear; transform: scale(1) }
+  .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15% }
+  .x3 { animation: floatUp 2.5s infinite linear; transform: scale(.5); left: -15% }
+  .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -34% }
+  .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: -57% }
+  .x6 { animation: floatUp 3s infinite linear; transform: scale(.8); left: -81% }
+  .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 37% }
+  .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 62% }
+  .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 85% }
+
+  /* fading headers */
+  .head1 { opacity: 0; animation: fadeOut 5s ease-in }
+  .head2 { opacity: 0; animation: fadeOut 5s ease-in; animation-delay: 6s }
+  .head3 { opacity: 0; animation: fadeOut 5s ease-in; animation-delay: 12s }
+  .head4 { opacity: 0; animation: fadeOut 5s ease-in; animation-delay: 18s }
+  .head5 { opacity: 0; animation: finalFade 5s ease-in; animation-delay: 24s }
+}
+
