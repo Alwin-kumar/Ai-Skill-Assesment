@@ -5,8 +5,11 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
+import { checkUser } from '../../lib/checkUser'
 
-const Header = () => {
+const Header = async() => {
+
+  await checkUser();
   return (
     <header className=' top-0 w-full bg-blend-lighten border-b border-gray-800  flex justify-between h-20 items-center p-6'>
         <nav>
@@ -17,7 +20,7 @@ const Header = () => {
             </nav>
             <div className='flex items-center   space-x-2 md:space-x-4 '>
               <SignedIn>
-                <Link href="/insights">
+                <Link href="/dashboard">
                 <Button className='bg-blue-300  ' variant="outline" >
                   <LayoutDashboard className='h-4 w-4'/>  <span className=' hidden md:block'>Industry Insights</span>
                 </Button>
@@ -26,7 +29,7 @@ const Header = () => {
 
               <DropdownMenu>
               <DropdownMenuTrigger>
-                <Button className='bg-blue-300' >
+                <Button className='bg-black text-white'>
                   <StarsIcon className='h-4 w-4 '/>  <span className=' hidden md:block'>Growth Tools</span>
                   <ChevronDown className='h-4 w-4'/>
                 </Button>

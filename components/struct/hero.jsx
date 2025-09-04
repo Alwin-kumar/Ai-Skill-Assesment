@@ -40,7 +40,7 @@ export  const HeroSection = () => {
     </p>
     
         <motion.div whileHover={{ scale: 1.015 }} whileTap={{ scale: 0.985 }} style={{border, boxShadow}}   className="mt-10   cursor-pointer border group relative hover-glow-cyan  flex  w-fit items-center rounded-full  bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50  text-glow-cyan" >
-          <Link href="/onboarding">
+          <Link href="/dashboard">
           <Button className="cursor-pointer" >
             <span >Get Started</span><Rocket className="ml-2 h-4 w-4" />
           </Button>

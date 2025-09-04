@@ -1,12 +1,12 @@
-import { SignIn } from '@clerk/nextjs'
-import React from 'react'
+"use client"
 
-const Page = () => {
+import { SignIn } from "@clerk/nextjs"
+
+export default function SignInPage() {
   return (
-    <div >
-      <SignIn/>
+    <div className="flex justify-center pt-40">
+      <SignIn routing="path" path="/sign-in" />
     </div>
   )
 }
 
-export default Page
