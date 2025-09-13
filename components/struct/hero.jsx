@@ -29,7 +29,7 @@ export  const HeroSection = () => {
   }, []); // ✅ add dependency array, otherwise it runs on every render
 
   return (
-    <div className="relative grid  overflow-hidden px-4 text-gray-200">
+    <div className="relative grid  min-w-screen my-20 overflow-hidden px-4 text-gray-200">
         
   
 

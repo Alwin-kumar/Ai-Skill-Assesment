@@ -154,6 +154,52 @@
     100% { top: -100vh; opacity: 0 }
   }
 
+    @keyframes moveBox {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(50px, 0); }
+    50%  { transform: translate(50px, 50px); }
+    75%  { transform: translate(0, 50px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .animate-moveBox {
+    animation: moveBox 3s linear infinite;
+  }
+
+
+  @keyframes verticalSlide {
+  0%   { transform: translateY(0%); }
+  20%  { transform: translateY(0%); }
+  25%  { transform: translateY(-100%); }
+  45%  { transform: translateY(-100%); }
+  50%  { transform: translateY(-200%); }
+  70%  { transform: translateY(-200%); }
+  75%  { transform: translateY(-300%); }
+  95%  { transform: translateY(-300%); }
+  100% { transform: translateY(0%); }
+}
+
+.animate-verticalSlide {
+  animation: verticalSlide 12s ease-in-out infinite;
+}
+
+@keyframes horizontalSlide {
+  0%   { transform: translateX(0%); }
+  20%  { transform: translateX(0%); }
+  25%  { transform: translateX(-100%); }
+  45%  { transform: translateX(-100%); }
+  50%  { transform: translateX(-200%); }
+  70%  { transform: translateX(-200%); }
+  75%  { transform: translateX(-300%); }
+  95%  { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-horizontalSlide {
+  animation: horizontalSlide 12s ease-in-out infinite;
+}
+
+
   /* floating lights */
   .light {
     position: absolute;
@@ -181,3 +227,49 @@
   .head5 { opacity: 0; animation: finalFade 5s ease-in; animation-delay: 24s }
 }
 
+/* global.css */
+.gradient-text {
+  background: linear-gradient(90deg, #b0b0b0, #e0e0e0); /* ash/gray gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* fallback */
+  font-weight: bold; /* optional */
+}
+
+
+/* container for slider */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  background: #f9f9f9;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* inner track */
+.slider-track {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+/* individual theme cards */
+.slider-item {
+  display: inline-block;
+  background: white;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-weight: bold;
+  color: #333;
+}
+
+/* animation keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

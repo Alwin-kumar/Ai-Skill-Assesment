@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
             <main className="min-h-screen">{children}
               
             </main>
+            <Toaster ></Toaster>
             <footer className="bg-muted/40 py-12">
               <div className="container mx-auto px-4 text-center text-cyan-600">
                 Copyright @2025 

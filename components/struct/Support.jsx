@@ -26,17 +26,18 @@ export  const Support = () => {
   }, []); // ✅ add dependency array, otherwise it runs on every render
 
   return (
-
-    <div className="h-80 m-40 rounded-xl ">
-  <div className=" bg-black  p-30 rounded-xl hover-glow-cyan">
+<div className="h-80 m-40 rounded-xl">
+  <div className="bg-black p-30 rounded-xl ">
     <div className="flex flex-col md:flex-row justify-center items-center hover-glow-cyan
-     text-white text-xl md:text-2xl gap-8 text-center font-semibold">
-       <div className="flex flex-col items-center gap-2">
+      text-white text-xl md:text-2xl gap-8 text-center font-semibold ">
+      
+      <div className="flex flex-col items-center gap-2">
         <Clock className="w-8 h-8 text-cyan-400" />
         <p>24/7 AI Career Assistance</p>
       </div>
 
-      <div className="flex flex-col items-center gap-2">
+      {/* moving one */}
+      <div className="flex flex-col items-center gap-2 ">
         <UserCheck className="w-8 h-8 text-green-400" />
         <p>Get Personalized Guidance</p>
       </div>
@@ -48,14 +49,12 @@ export  const Support = () => {
 
       <div className="flex flex-col items-center gap-2">
         <MonitorSpeaker className="w-8 h-8 text-pink-400" />
-        <p>Prepare for Interviews Confidently</p>
+        <p>Prepare for Interviews</p>
       </div>
     </div>
   </div>
+</div>
 
-
-  </div>
-    
   );
 }
 

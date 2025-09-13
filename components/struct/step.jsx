@@ -38,9 +38,7 @@ export  const Step = () => {
              />
         </div>
 
-        <div>
-
-        </div>
+        
   
     </div>
   );
